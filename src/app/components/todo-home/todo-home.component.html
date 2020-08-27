@@ -1,0 +1,34 @@
+<nav class="navbartab">
+  <a class="textalign" href="#">Todo Application</a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-4 p-4">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter The Todo" [(ngModel)]= "text" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class=" bg-primary text-white" id="basic-addon2" (click) ="AddTodo()">Add Todo</button>
+        </div>
+      </div>
+    </div>
+    <p *ngIf ="text" class="mx-4 text-info bg-light p-3">{{text}}</p>
+  </div>
+  <div class="row">
+    <div class="col-12 p-4">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todos">
+          <p id="title">
+            {{ todo.title | uppercase}}
+            <br>
+            <small aria-describedby="title">{{ todo.description }}</small>
+          </p>
+          <button class="btn btn-outline-danger text-info" (click)="deleteTodo(todo.id)">X</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errMess">
+    <span>{{errMess}}</span>
+  </div>
+</div>
