@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodoserviceService } from '../app/services/todoservice.service';
 import { ProcessHttpMsgService } from '../app/services/process-http-msg.service';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [ TodoserviceService , ProcessHttpMsgService],

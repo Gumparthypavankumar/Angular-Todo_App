@@ -11,9 +11,9 @@
       "description": "This is todo Two index 2"
     },
     {
-      "id": "3",
-      "title": "todo Three",
-      "description": "This is todo Three index 3"
+      "id": 3,
+      "title": "todo three",
+      "description": "This is todo three index 3"
     }
   ]
 }

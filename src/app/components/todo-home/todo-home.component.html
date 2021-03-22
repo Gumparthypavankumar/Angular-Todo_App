@@ -14,10 +14,10 @@
     </div>
     <p *ngIf ="text" class="mx-4 text-info bg-light p-3">{{text}}</p>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="todos">
     <div class="col-12 p-4">
       <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todos">
+        <li class="list-group-item d-flex justify-content-between"  *ngFor="let todo of todos">
           <p id="title">
             {{ todo.title | uppercase}}
             <br>

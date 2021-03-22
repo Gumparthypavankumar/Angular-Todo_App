@@ -15,26 +15,21 @@ export class TodoHomeComponent implements OnInit {
   text:string;
   errMess:string;
   constructor(protected data:TodoserviceService) { 
-    this.data.getData().subscribe(res => this.todos = res,
-      err => this.errMess=err);
+    this.getTodos();
   }
 
   ngOnInit() {
   }
+  getTodos(){
+    this.data.getData().subscribe(res => this.todos = res,
+      err => this.errMess=err);
+  }
   AddTodo()
   {
-    this.data.AddData(this.text);
-    setTimeout(() => {
-      this.data.getData().subscribe(res => this.todos = res,
-        err => this.errMess=err);
-    },100);
-    this.text = '';
+    this.data.AddData(this.text).subscribe(todovalue => this.todos.push(todovalue), err => this.errMess=err);
+    this.text = "";
   }
   deleteTodo(id){
-    this.data.DeleteTodo(id).subscribe(res => {
-      setTimeout(() => {
-        this.data.getData().subscribe(res => this.todos = res,
-          err => console.log(err));
-      },100)},err => this.errMess=err);
+    this.data.DeleteTodo(id).subscribe(res => this.todos = this.todos.filter(todovalue => todovalue.id !== id), err => this.errMess = err);
    }
 }
